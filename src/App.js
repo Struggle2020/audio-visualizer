@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Dropzone from "react-dropzone";
+import { useEffect, useState } from "react";
 
-function App() {
+const App = () => {
+  const [file, setFile] = useState("");
+
+  useEffect(() => {
+    const audio = new Audio(file);
+    if (file) {
+      audio.play().then(() => {
+        console.log("audio playing");
+      });
+    }
+  }, [file]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Dropzone
+        onDrop={(acceptedFiles) =>
+          setFile(URL.createObjectURL(acceptedFiles[0]))
+        }
+      >
+        {({ getRootProps, getInputProps }) => (
+          <section>
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <p>Drag 'n' drop some files here, or click to select files</p>
+            </div>
+          </section>
+        )}
+      </Dropzone>
+      <audio src={file} />
+    </>
   );
-}
+};
 
 export default App;
