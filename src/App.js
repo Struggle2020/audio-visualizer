@@ -37,8 +37,8 @@ function Points() {
   const bufferRef = useRef();
 
   let t = 1;
-  let f = 0.004;
-  let a = 4;
+  let f = 0.0004;
+  let a = 20;
   const graph = useCallback(
     (x, z) => {
       return Math.sin(f * (x ** 2 + z ** 2 + t)) * a;
@@ -46,8 +46,8 @@ function Points() {
     [t, f, a]
   );
 
-  const count = 1000;
-  const sep = 1;
+  const count = 150;
+  const sep = 4;
   let positions = useMemo(() => {
     let positions = [];
 
@@ -99,7 +99,7 @@ function Points() {
       </bufferGeometry>
       <pointsMaterial
         map={imgTex}
-        size={0.5}
+        size={4}
         sizeAttenuation
         transparent={true}
         alphaTest={0.5}
