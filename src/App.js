@@ -116,7 +116,6 @@ function AnimationCanvas() {
     <Canvas camera={{ position: [100, 2, 0], fov: 75 }}>
       <pointLight position={[100, 2, 0]} intensity={200} />
       <Suspense fallback={null}>
-        <Jumbo />
         <Points />
       </Suspense>
       <CameraControls />
