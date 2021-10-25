@@ -111,24 +111,6 @@ function Points() {
   );
 }
 
-function Jumbo() {
-  const ref = useRef();
-  useFrame(
-    ({ clock }) =>
-      (ref.current.rotation.x =
-        ref.current.rotation.y =
-        ref.current.rotation.z =
-          Math.sin(clock.getElapsedTime()) * 0.3)
-  );
-  return (
-    <group ref={ref}>
-      <Text hAlign="right" position={[-12, 6.5, 0]} children="REACT" />
-      <Text hAlign="right" position={[-12, 0, 0]} children="THREE" />
-      <Text hAlign="right" position={[-12, -6.5, 0]} children="FIBER" />
-    </group>
-  );
-}
-
 function AnimationCanvas() {
   return (
     <Canvas camera={{ position: [100, 2, 0], fov: 75 }}>
