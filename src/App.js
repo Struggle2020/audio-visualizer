@@ -10,7 +10,6 @@ import {
 } from "react-three-fiber";
 import circleImg from "./jon favicon.png";
 import { Suspense, useCallback, useMemo, useRef } from "react";
-import Text from "./components/Text";
 
 extend({ OrbitControls });
 
