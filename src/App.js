@@ -36,8 +36,8 @@ function Points() {
   const imgTex = useLoader(THREE.TextureLoader, circleImg);
   const bufferRef = useRef();
 
-  let t = 2;
-  let f = 0.0005;
+  let t = 1;
+  let f = 0.004;
   let a = 4;
   const graph = useCallback(
     (x, z) => {
@@ -46,8 +46,8 @@ function Points() {
     [t, f, a]
   );
 
-  const count = 100;
-  const sep = 5;
+  const count = 1000;
+  const sep = 1;
   let positions = useMemo(() => {
     let positions = [];
 
@@ -97,11 +97,9 @@ function Points() {
           itemSize={3}
         />
       </bufferGeometry>
-
       <pointsMaterial
-        attach="material"
         map={imgTex}
-        size={3.5}
+        size={0.5}
         sizeAttenuation
         transparent={true}
         alphaTest={0.5}
